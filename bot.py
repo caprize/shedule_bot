@@ -13,7 +13,7 @@ week = {0: "Понедельник", 1: "Вторник", 2: "Среда", 3: "�
 @tb.message_handler(commands=['start', 'help'])
 def upper(message):
     mark_up = types.InlineKeyboardMarkup(row_width=2)
-    mark_up.add(
+    mark_up.add(types.InlineKeyboardButton('Расписание на сегодня', callback_data="today_lessons"),
                 types.InlineKeyboardButton('Расписание на завтра', callback_data="tommorow_lessons"))
     mark_up.add(types.InlineKeyboardButton('Когда ближайший кружок?', callback_data="circles"))
     tb.send_message(ID,'Дарова это я',reply_markup=mark_up)
@@ -25,7 +25,7 @@ def s(message):
 @tb.callback_query_handler(func=lambda call: True)
 def query_handler(call):
     mark_up = types.InlineKeyboardMarkup(row_width=2)
-    mark_up.add(
+    mark_up.add(types.InlineKeyboardButton('Расписание на сегодня', callback_data="today_lessons"),
                 types.InlineKeyboardButton('Расписание на завтра', callback_data="tommorow_lessons"))
     mark_up.add(types.InlineKeyboardButton('Мои кружки', callback_data="circles"))
     with open("shedule.json", "r") as read_file:
@@ -54,6 +54,8 @@ def query_handler(call):
             sms += '\n'
         tb.send_message(ID, sms, reply_markup=mark_up,parse_mode='Markdown')
         tb.send_sticker(ID, 'CAADAgADrQADJd8wHq-igYr5nyYUFgQ')
+    if call.data == 'today_lessons':
+        morning()
 def morning():
     date = int(datetime.datetime.today().weekday())
     day = week[date]
@@ -87,7 +89,7 @@ def morning():
     else:
         tb.send_message(ID, sms, reply_markup=mark_up, parse_mode='Markdown')
         tb.send_sticker(ID, 'CAADAgADlwEAAiXfMB40_zuFZ8yBJhYE')
-schedule.every().day.at("06:20").do(morning)
-while True:
-    schedule.run_pending()
+# schedule.every().day.at("06:20").do(morning)
+# # while True:
+# #     schedule.run_pending()
 tb.polling()
