@@ -1,6 +1,6 @@
 TOKEN = '731947153:AAETaq49IdPhGCg9YssRF6RmW3ZIjzAdX4o'
 ID = '419887691'
-url = "http://webservices.mirea.ru/upload/iblock/c8d/%D0%98%D0%98%D0%A2_1%D0%BA_20-21_%D0%BE%D1%81%D0%B5%D0%BD%D1%8C.xlsx"
+url = "http://webservices.mirea.ru/upload/iblock/816/%D0%98%D0%98%D0%A2_1%D0%BA_20-21_%D0%BE%D1%81%D0%B5%D0%BD%D1%8C_6_%D1%83%D1%87.%D0%BD..xlsx"
 week = {0: "Понедельник", 1: "Вторник", 2: "Среда", 3: "Четверг", 4: "Пятница", 5: "Суббота", 6: "Воскресенье"}
 chet = {10:
             {"Четные":

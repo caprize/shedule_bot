@@ -67,6 +67,7 @@ def query_handler(call):
                 if str(value) == "nan (nan)":
                     continue
                 sms += str(i) + ') ' + str(value) + "  //  " + rings[str(i)] + '\n'
+
             tb.send_message(ID, sms, reply_markup=mark_up, parse_mode='Markdown')
             tb.send_sticker(ID, 'CAADAgADjAEAAiXfMB7wJbXMz_7HwxYE')
             # tb.edit_message_text(sms, ID, inline_message_id=call.message,reply_markup=mark_up, parse_mode='Markdown')
