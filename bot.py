@@ -59,9 +59,12 @@ def query_handler(call):
                 date = 0
             else:
                 date += 1
+                day = week[date]
             sms = 'На завтра у тебя:' + '\n'
-            sms += '*' + week[date-1] + '*' + ':' + '\n'
+            sms += '*' + week[date] + '*' + ':' + '\n'
             i = 0
+            print(day)
+            print(lessons[day])
             for value in lessons[day][koef]:
                 i += 1
                 if str(value) == "nan (nan)":
@@ -97,8 +100,9 @@ def query_handler(call):
         mark_up.add(types.InlineKeyboardButton('Мои кружки', callback_data="circles"))
         if day != 'Воскресенье':
             sms = 'Сегодня  у тебя:' + '\n'
-            sms += '*' + week[date-1] + '*' + ':' + '\n'
+            sms += '*' + week[date] + '*' + ':' + '\n'
             i = 0
+
             for value in lessons[day][koef]:
                 i += 1
                 if str(value) == "nan (nan)":
