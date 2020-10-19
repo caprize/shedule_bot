@@ -9,6 +9,7 @@ import time
 import subprocess
 from bs4 import BeautifulSoup
 import urllib.parse
+import pytz
 
 def update():
     with open("schedule_page.html", "w") as f:
@@ -27,6 +28,8 @@ def update():
     urllib.request.urlretrieve(link, "sched.xlsx")  # For Python 3
     subprocess.Popen(['python3', "work_with_file.py"])
 
+offset = datetime.timedelta(hours=3)
+datetime.timezone(offset, name='МСК')
 now = (datetime.datetime.now())
 date = "%d" % now.hour
 sec = "%d" % now.second
