@@ -6,7 +6,6 @@ import datetime
 from constants import *
 import urllib
 import time
-from threading import Thread
 import subprocess
 from bs4 import BeautifulSoup
 import urllib.parse
@@ -43,3 +42,4 @@ if date == "6" and sec == "0" and minut == "0":
 # writer = xl.ExcelWriter("sched.xlsx",engine='xlsxwriter')
 # xl.to_excel(writer,'ss')
 # writer.save()
+
