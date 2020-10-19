@@ -17,7 +17,6 @@ import pytz
 
 offset = datetime.timedelta(hours=3)
 datetime.timezone(offset, name='МСК')
-print(datetime.datetime.now())
 @tb.message_handler(commands=['start', 'help'])
 def upper(message):
     mark_up = types.InlineKeyboardMarkup(row_width=2)
@@ -44,7 +43,7 @@ def query_handler(call):
         rings = json.load(read_file)
     with open("circles.json", "r") as read_file:
         table = json.load(read_file)
-    date = int(datetime().datetime.today().weekday())
+    date = int(datetime.datetime.today().weekday())
     month = (datetime.datetime.today().month)
     day = datetime.datetime.today().day
     if day in chet[month]["Четные"]:
