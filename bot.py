@@ -46,6 +46,7 @@ def query_handler(call):
     date = int(datetime.datetime.today().weekday())
     month = (datetime.datetime.today().month)
     day = datetime.datetime.today().day
+    "gg"
     if day in chet[month]["Четные"]:
         koef = "Четные"
     else:
