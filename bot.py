@@ -169,10 +169,10 @@ def scd():
     while True:
         now = (datetime.datetime.now())
         hour = "%d" % now.hour
-        sec = "%d" % now.second
+        # sec = "%d" % now.second
         min = "%d" % now.minute
         subprocess.Popen(['python3', 'get_file.py'])
-        if hour == "18" and min == "12" :
+        if hour == "7" and min == "45":
             morning()
 
         time.sleep(60)
