@@ -168,13 +168,14 @@ import  subprocess
 def scd():
     while True:
         now = (datetime.datetime.now())
-        date = "%d" % now.hour
+        hour = "%d" % now.hour
         sec = "%d" % now.second
         min = "%d" % now.minute
-        if date == "7" and sec == "0" and min == "20":
-            morning()
         subprocess.Popen(['python3', 'get_file.py'])
-        time.sleep(30)
+        if hour == "18" and min == "12" :
+            morning()
+
+        time.sleep(60)
 
 
 

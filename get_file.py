@@ -11,13 +11,13 @@ from bs4 import BeautifulSoup
 import urllib.parse
 import pytz
 
+
 def update():
     with open("schedule_page.html", "w") as f:
         sched_page = requests.get(url)
         f.write(sched_page.text)
         sched_page = str(sched_page.text)
-        sched_page = BeautifulSoup(sched_page,"lxml")
-
+        sched_page = BeautifulSoup(sched_page, "lxml")
         link = sched_page.find_all("a")[132]
         link = str(link['href'])
         linkloc = link[46::]
@@ -28,13 +28,13 @@ def update():
     urllib.request.urlretrieve(link, "sched.xlsx")  # For Python 3
     subprocess.Popen(['python3', "work_with_file.py"])
 
-offset = datetime.timedelta(hours=3)
-datetime.timezone(offset, name='МСК')
+
+
 now = (datetime.datetime.now())
-date = "%d" % now.hour
+hour = "%d" % now.hour
 sec = "%d" % now.second
 minut = "%d" % now.minute
-if date == "6" and sec == "0" and minut == "0":
+if hour == "17" and minut == "26":
     update()
 
 # urllib.urlretrieve(dls, "test.xls")  # For Python 2
@@ -45,4 +45,3 @@ if date == "6" and sec == "0" and minut == "0":
 # writer = xl.ExcelWriter("sched.xlsx",engine='xlsxwriter')
 # xl.to_excel(writer,'ss')
 # writer.save()
-
